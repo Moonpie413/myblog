@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title></title>
+  <title>WXH</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-27T06:58:24.760Z</updated>
+  <updated>2018-02-01T16:46:23.669Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,19 +17,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2018/01/27/hello-world/"/>
-    <id>http://yoursite.com/2018/01/27/hello-world/</id>
-    <published>2018-01-27T06:58:24.760Z</published>
-    <updated>2018-01-27T06:58:24.760Z</updated>
+    <title>mysql笔记 (一)</title>
+    <link href="http://yoursite.com/2018/02/01/mysql%E7%AC%94%E8%AE%B0(%E4%B8%80)/"/>
+    <id>http://yoursite.com/2018/02/01/mysql笔记(一)/</id>
+    <published>2018-02-01T14:59:05.000Z</published>
+    <updated>2018-02-01T16:46:23.669Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<ul><li><a href="#%E5%B1%82%E7%BA%A7%E7%BB%93%E6%9E%84">层级结构</a></li><li><a href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">存储引擎</a><ul><li><a href="#myisam">MyISAM</a><ul><li><a href="#%E7%B4%A2%E5%BC%95%E6%94%AF%E6%8C%81">索引支持</a></li></ul></li><li><a href="#innodb">InnoDB</a><ul><li><a href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E6%80%A7">主要特性</a></li></ul></li></ul></li><li><a href="#%E6%9D%83%E9%99%90%E7%BA%A7%E5%88%AB">权限级别</a><ul><li><a href="#global-level">Global Level</a></li><li><a href="#database-level">Database Level</a></li><li><a href="#tabel-level">Tabel Level</a></li><li><a href="#column-level">Column Level</a></li><li><a href="#routine-level">Routine Level</a></li><li><a href="#grant">GRANT</a></li></ul></li></ul><h1 id="层级结构"><a href="#层级结构" class="headerlink" title="层级结构"></a>层级结构</h1><p><strong>Sql Layer</strong> 负责查询相关, <strong>Storage Engine Layer</strong> 底层数据存储相关</p><p>将存储与计算分离</p><p><img src="/images/mysql_layer.png" alt="mysql_layer.png"></p><h1 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h1><h2 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h2><h3 id="索引支持"><a href="#索引支持" class="headerlink" title="索引支持"></a>索引支持</h3><ol><li>B-Tree<ul><li>按照 <em>B-Tree</em> 结构存储数据</li></ul></li><li>R-Tree<ul><li>设计用于为存储空间和多维数据的字段做索引 (暂时不是很明白这段话的意思)</li></ul></li><li>Full-Text<ul><li>全文检索, 提高 <em>LIKE</em> 查询的效率</li></ul></li></ol><h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><h3 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h3><ol><li>支持事务安全</li><li>数据多版本读取</li><li>锁定机制改进<ul><li>改变了MyISAM的锁机制实现了行锁</li></ul></li><li>实现外建</li></ol><h1 id="权限级别"><a href="#权限级别" class="headerlink" title="权限级别"></a>权限级别</h1><h2 id="Global-Level"><a href="#Global-Level" class="headerlink" title="Global Level"></a>Global Level</h2><p>全局级别, <strong>拥有最高优先级</strong></p><p><code>*.*</code> 表示全局作用域</p><p>示例:</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span>,<span class="keyword">UPDATE</span>,<span class="keyword">DELETE</span>,<span class="keyword">INSERT</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'def'</span>@<span class="string">'localhost'</span>;</span><br></pre></td></tr></table></figure><h2 id="Database-Level"><a href="#Database-Level" class="headerlink" title="Database Level"></a>Database Level</h2><p><code>database.*</code> 表示数据库级别作用域</p><p>示例:</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALTER</span> <span class="keyword">ON</span> test.* <span class="keyword">TO</span> <span class="string">'def'</span>@<span class="string">'localhost'</span>;</span><br></pre></td></tr></table></figure><p>也可以先选定数据库, 然后通过 <code>*</code> 来限定作用域为当前数据库, 如:</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">USE</span> <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">DROP</span> <span class="keyword">ON</span> * <span class="keyword">TO</span> <span class="string">'def'</span>@<span class="string">'localhost'</span>;</span><br></pre></td></tr></table></figure><p>多个用户可以用逗号隔开:</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">CREATE</span> <span class="keyword">ON</span> perf.* <span class="keyword">TO</span> <span class="string">'abc'</span>@<span class="string">'localhost'</span>,<span class="string">'def'</span>@<span class="string">'localhost'</span>;</span><br></pre></td></tr></table></figure><h2 id="Tabel-Level"><a href="#Tabel-Level" class="headerlink" title="Tabel Level"></a>Tabel Level</h2><p><code>database.table</code> 表级别作用域</p><p>示例:</p><p>其中 <em>%</em> 表示通配符</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">INDEX</span> <span class="keyword">ON</span> test.t1 <span class="keyword">TO</span> <span class="string">'abc'</span>@<span class="string">'%.jianzhaoyang.com'</span>;</span><br></pre></td></tr></table></figure><h2 id="Column-Level"><a href="#Column-Level" class="headerlink" title="Column Level"></a>Column Level</h2><p>列级别, 语法与 <em>Table Level</em> 相似, 只是需要在括号中指定列</p><p>示例:</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span>(<span class="keyword">id</span>,<span class="keyword">value</span>) <span class="keyword">ON</span> test.t2 <span class="keyword">TO</span> <span class="string">'abc'</span>@<span class="string">'%.jianzhaoyang.com'</span>;</span><br></pre></td></tr></table></figure><h2 id="Routine-Level"><a href="#Routine-Level" class="headerlink" title="Routine Level"></a>Routine Level</h2><p>主要针对 <em>procedure</em> 和 <em>function</em></p><h2 id="GRANT"><a href="#GRANT" class="headerlink" title="GRANT"></a>GRANT</h2><p>特殊权限, 拥有该权限的用户可以将 <strong>自身</strong> 拥有的权限赋予其他用户</p><p>示例:</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> ALL <span class="keyword">ON</span> test.t5 <span class="keyword">TO</span> <span class="string">'abc'</span>;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%B1%82%E7%BA%A7%E7%BB%93%E6%9E%84&quot;&gt;层级结构&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E&quot;&gt;存储引擎&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>构建高性能web站点读书笔记</title>
+    <link href="http://yoursite.com/2018/01/27/%E6%9E%84%E5%BB%BA%E9%AB%98%E6%80%A7%E8%83%BDweb%E7%AB%99%E7%82%B9%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/01/27/构建高性能web站点读书笔记/</id>
+    <published>2018-01-27T07:26:04.000Z</published>
+    <updated>2018-01-27T07:51:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="IO模型"><a href="#IO模型" class="headerlink" title="IO模型"></a>IO模型</h1><h2 id="PIO-amp-DMA"><a href="#PIO-amp-DMA" class="headerlink" title="PIO &amp; DMA"></a>PIO &amp; DMA</h2><h3 id="PIO"><a href="#PIO" class="headerlink" title="PIO"></a>PIO</h3><p>由CPU进行控制磁盘与内存之间的数据传输, 占用大量CPU时间</p><h3 id="DMA-直接内存访问，Direct-Memory-Access"><a href="#DMA-直接内存访问，Direct-Memory-Access" class="headerlink" title="DMA (直接内存访问，Direct Memory Access)"></a>DMA (直接内存访问，Direct Memory Access)</h3><p>由DMA控制器负责数据传输, 并通知CPU</p><h2 id="同步阻塞IO"><a href="#同步阻塞IO" class="headerlink" title="同步阻塞IO"></a>同步阻塞IO</h2><p>读取IO时当前进程等待</p><h2 id="同步非阻塞IO"><a href="#同步非阻塞IO" class="headerlink" title="同步非阻塞IO"></a>同步非阻塞IO</h2><p>反复轮询来判断数据是否就绪, 防止进程被阻塞, 但反复论轮询花费大量CPU时间, 使进程处于忙碌状态,<br>一般只针对于网络IO</p><h2 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h2><p>指当用户态进程调用库函数访问文件时, 进行必要的快速注册, 比如进入读写操作队列, 然后函数马上返回</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;IO模型&quot;&gt;&lt;a href=&quot;#IO模型&quot; class=&quot;headerlink&quot; title=&quot;IO模型&quot;&gt;&lt;/a&gt;IO模型&lt;/h1&gt;&lt;h2 id=&quot;PIO-amp-DMA&quot;&gt;&lt;a href=&quot;#PIO-amp-DMA&quot; class=&quot;headerlink&quot; ti
       
     
     </summary>
