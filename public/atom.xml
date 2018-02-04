@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-01T16:46:23.669Z</updated>
+  <updated>2018-02-04T08:53:00.842Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vim_operator_pending.md</title>
+    <link href="http://yoursite.com/2018/02/04/vim-operator-pending-md/"/>
+    <id>http://yoursite.com/2018/02/04/vim-operator-pending-md/</id>
+    <published>2018-02-04T08:37:17.000Z</published>
+    <updated>2018-02-04T08:53:00.842Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="关于VIM中的Operator-Pending映射"><a href="#关于VIM中的Operator-Pending映射" class="headerlink" title="关于VIM中的Operator-Pending映射"></a>关于VIM中的Operator-Pending映射</h1><p>VIM已经用了有一年了，但是这一年来基本上只是用到了最基本的功能，并没有提高很多自己的码字效率，<br>插件倒是装了一堆却并没有理解为什么，使用着强大的工具却不了解其运作原理总归让人有点不安，所以<br>趁这两天准备把VIM的基本运作方式搞搞清楚，顺便给自己的 <em>.vimrc</em> 瘦个身。</p><p>首先, 看的是在线版本的 <a href="&#39;http://learnvimscriptthehardway.stevelosh.com/&#39;">learn vim the hard way</a></p><p>前几章关于 <em>基本设置</em> , <em>文件类型相关设置</em> , <em>按键映射</em> 方面的章节都还好，到 <a href="&#39;http://learnvimscriptthehardway.stevelosh.com/chapters/15.html&#39;">operator-padding</a><br>这一章就有点看不懂了，主要是因为其中的 <em>text-objects</em> 相关有些不明白，因此又看了另一篇 <a href="&#39;https://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/&#39;">博客</a>，<br>搞懂了 <em>text-objects</em> 之后再来看就简单多了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;关于VIM中的Operator-Pending映射&quot;&gt;&lt;a href=&quot;#关于VIM中的Operator-Pending映射&quot; class=&quot;headerlink&quot; title=&quot;关于VIM中的Operator-Pending映射&quot;&gt;&lt;/a&gt;关于VIM中的Oper
+      
+    
+    </summary>
+    
+    
+      <category term="vim" scheme="http://yoursite.com/tags/vim/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql笔记 (一)</title>
