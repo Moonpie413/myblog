@@ -1,4 +1,59 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> vim_operator_pending.md · WXH</title><meta name="description" content="vim_operator_pending.md - wangxinhua"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="WXH"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">vim_operator_pending.md</h1><div class="post-info">Feb 4, 2018</div><div class="post-content"><h1 id="关于VIM中的Operator-Pending映射"><a href="#关于VIM中的Operator-Pending映射" class="headerlink" title="关于VIM中的Operator-Pending映射"></a>关于VIM中的Operator-Pending映射</h1><p>VIM已经用了有一年了，但是这一年来基本上只是用到了最基本的功能，并没有提高很多自己的码字效率，<br>插件倒是装了一堆却并没有理解为什么，使用着强大的工具却不了解其运作原理总归让人有点不安，所以<br>趁这两天准备把VIM的基本运作方式搞搞清楚，顺便给自己的 <em>.vimrc</em> 瘦个身。</p>
-<p>首先, 看的是在线版本的 <a href="&#39;http://learnvimscriptthehardway.stevelosh.com/&#39;">learn vim the hard way</a></p>
-<p>前几章关于 <em>基本设置</em> , <em>文件类型相关设置</em> , <em>按键映射</em> 方面的章节都还好，到 <a href="&#39;http://learnvimscriptthehardway.stevelosh.com/chapters/15.html&#39;">operator-padding</a><br>这一章就有点看不懂了，主要是因为其中的 <em>text-objects</em> 相关有些不明白，因此又看了另一篇 <a href="&#39;https://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/&#39;">博客</a>，<br>搞懂了 <em>text-objects</em> 之后再来看就简单多了。</p>
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> VIM中的Operator-Pending · WXH</title><meta name="description" content="VIM中的Operator-Pending - wangxinhua"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="WXH"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">VIM中的Operator-Pending</h1><div class="post-info">Feb 4, 2018</div><div class="post-content"><h1 id="关于VIM中的Operator-Pending映射"><a href="#关于VIM中的Operator-Pending映射" class="headerlink" title="关于VIM中的Operator-Pending映射"></a>关于VIM中的Operator-Pending映射</h1><p>VIM已经用了有一年了, 但是这一年来基本上只是用到了最基本的功能, 并没有提高很多自己的码字效率,<br>插件倒是装了一堆却并没有理解为什么,<br>使用着强大的工具却不了解其运作原理总归让人有点不安, 所以趁这两天准备把VIM的基本运作方式搞搞清楚, 顺便给自己的 <em>.vimrc</em> 瘦个身。</p>
+<p>首先, 看的是在线版本的 <a href="&#39;http://learnvimscriptthehardway.stevelosh.com/&#39;">Learn Vim The Hard Way</a></p>
+<p>前几章关于 <em>基本设置</em> , <em>文件类型相关设置</em> , <em>按键映射</em> 方面的章节都还好, 到 <a href="&#39;http://learnvimscriptthehardway.stevelosh.com/chapters/15.html&#39;">operator-padding</a><br>这一章就有点看不懂了, 主要是因为 <em>text-objects</em> 有些不明白, 因此又看了另一篇 <a href="&#39;https://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/&#39;">博客</a>,<br>搞懂了 <em>text-objects</em> 之后再来看就简单多了。</p>
+<h2 id="Text-Objects"><a href="#Text-Objects" class="headerlink" title="Text-Objects"></a>Text-Objects</h2><p>VIM中的 <em>text-objects</em> 是更高效得操作单词、句子、段落的一个作用域对象, 称为 <strong>文本对象</strong></p>
+<p>首先需要了解VIM的命令结构</p>
+<p>VIM中的命令结构如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;number&gt;&lt;command&gt;&lt;text object or motion&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>number</strong> 是指作用的文本对象数量, 它是可选的, 并且可以在之前或者之后出现</p>
+</li>
+<li><p><strong>commond</strong> 对文本对象的操作, 如删除、复制等, 它也是可选的, 但如果不指定则该命令就<br>失去了编辑能力</p>
+</li>
+<li><p><strong>text objects or motion</strong> 指文本对象的作用域, 如一个单词(w), 一句话(s), 或一个段落(p)</p>
+</li>
+</ul>
+<p>总的来说 一个命令由以上几部分组成起来, 就可以将基本的修改、移动操作变得更加强大</p>
+<h3 id="文本对象类型"><a href="#文本对象类型" class="headerlink" title="文本对象类型"></a>文本对象类型</h3><p>以下为一些常用的文本对象类型</p>
+<ul>
+<li>iw inner word</li>
+<li>aw a word</li>
+<li>iW inner WORD</li>
+<li>aW a WORD</li>
+<li>is inner sentence</li>
+<li>as a sentence</li>
+<li>ip inner paragraph</li>
+<li>ap a paragraph</li>
+<li>it inner tag</li>
+<li>at a tag</li>
+<li>i  ( or i) inner block</li>
+<li>a  ( or a) a block</li>
+<li>i  &lt; or i&gt; inner block</li>
+<li>a  &lt; or a&gt; a block</li>
+<li>i  { or i} inner block</li>
+<li>a  { or a} a block</li>
+<li>i  [ or i] inner block</li>
+<li>a  [ or a] a block</li>
+<li>i  inner block</li>
+<li>a  a block</li>
+<li>i` inner block</li>
+<li>a` a block</li>
+</ul>
+<p>从列表中可以看出, <em>text objects</em> 不仅可以匹配单词句子, 还可以匹配到括号等变成中经常会用到的<br>符号, 数量使用的话会相当方便</p>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><h4 id="普通文本"><a href="#普通文本" class="headerlink" title="普通文本"></a>普通文本</h4><p><code>diw</code> 或 <code>daw</code> 删除当前选中的单词</p>
+<p>其中 <em>d</em> 指 <strong>commond</strong> , 而 <em>iw</em> 则是一个单词类型的文本对象</p>
+<p>注意 <code>diw</code> 只会删除单词, 而 <code>daw</code> 会同时删除单词旁边的空格, 这是因为</p>
+<p><em>iw</em> 表示 <em>inner word</em> 而 <em>aw</em> 表示 <em>a word</em> , 它不仅会选中单词, 还会选中旁边的空格</p>
+<h4 id="程序文本"><a href="#程序文本" class="headerlink" title="程序文本"></a>程序文本</h4><p>如下 <em>html</em> 代码中, 使用 <code>cit</code> 命令可以快速修改两个tag之间的内容</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>hello world!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Operator-Pending"><a href="#Operator-Pending" class="headerlink" title="Operator-Pending"></a>Operator-Pending</h2><p><em>Operator-Pending</em> 中的Operaotr就是上文中的 <strong>commond</strong>,<br>配上 <em>text-object</em> 或者一个 <em>movement</em> 就构成了一个完成的命令</p>
+<h3 id="Movement-映射"><a href="#Movement-映射" class="headerlink" title="Movement 映射"></a>Movement 映射</h3><p>VIM 允许将命令中的 <em>movement</em> 映射到其他按键, 如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:onoremap p i(</span><br></pre></td></tr></table></figure>
+<p>将 <code>i(&#39;</code> 映射到按键p上, 也就是说 <code>dp</code> 等价于 <code>di(</code>, 即删除括号中的内容</p>
+<p>第二个例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:onoremap b /return&lt;cr&gt;</span><br></pre></td></tr></table></figure>
+<p>执行 <code>db</code>, VIM会删除所有下一个 <code>return</code> 之间的内容</p>
+<p>第三个例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:onoremap in( :&lt;c-u&gt;normal! f(vi(&lt;cr&gt;</span><br></pre></td></tr></table></figure>
+<p>执行 <code>din(</code> 会删除当前光标所在的后一对 () 中的内容, 其中用到了 <em>normal!</em><br>来模拟命令, 关键点就是 <code>f(</code> 这个命令移动到最近的 <code>(</code> 然后通过 <code>vi(</code> 选中下一个 <code>)</code><br>之间的内容</p>
 </div></article></div></main><footer><div class="paginator"><a href="/2018/02/01/mysql_notes_1/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="http://yoursite.com">wangxinhua</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
