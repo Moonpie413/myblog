@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-17T09:35:24.967Z</updated>
+  <updated>2018-02-17T10:58:05.513Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Firefox Developer&#39;s Edition 使用小记</title>
+    <link href="http://yoursite.com/2018/02/17/firefox-de-hardware-acceleration/"/>
+    <id>http://yoursite.com/2018/02/17/firefox-de-hardware-acceleration/</id>
+    <published>2018-02-17T10:53:17.000Z</published>
+    <updated>2018-02-17T10:58:05.513Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="小记一下火狐开发者版本使用中遇到的问题"><a href="#小记一下火狐开发者版本使用中遇到的问题" class="headerlink" title="小记一下火狐开发者版本使用中遇到的问题"></a>小记一下火狐开发者版本使用中遇到的问题</h2><h3 id="修改DPI适应高分屏"><a href="#修改DPI适应高分屏" class="headerlink" title="修改DPI适应高分屏"></a>修改DPI适应高分屏</h3><p><em>about:config</em> 中修改 <code>layout.css.devPixelsPerPx</code></p><p>参考 <a href="https://fedoramagazine.org/how-to-get-firefox-looking-right-on-a-high-dpi-display-and-fedora/" target="_blank" rel="noopener">How to get Firefox looking right on a high DPI display and Fedora</a></p><h3 id="解决画面撕裂"><a href="#解决画面撕裂" class="headerlink" title="解决画面撕裂"></a>解决画面撕裂</h3><p><em>about:config</em> 中修改 <code>layers.acceleration.force-enabled</code> 开启硬件加速</p><p>参考 <a href="https://cialu.net/enable-hardware-acceleration-firefox-make-faster/" target="_blank" rel="noopener">Enable hardware acceleration in Firefox</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;小记一下火狐开发者版本使用中遇到的问题&quot;&gt;&lt;a href=&quot;#小记一下火狐开发者版本使用中遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;小记一下火狐开发者版本使用中遇到的问题&quot;&gt;&lt;/a&gt;小记一下火狐开发者版本使用中遇到的问题&lt;/h2&gt;&lt;h3 i
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>并发编程笔记 (一)</title>
