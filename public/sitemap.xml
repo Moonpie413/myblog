@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/02/14/concurrency-notes/</loc>
+    
+    <lastmod>2018-02-17T09:35:24.967Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/02/04/vim-operator-pending-md/</loc>
     
     <lastmod>2018-02-05T15:26:58.223Z</lastmod>
