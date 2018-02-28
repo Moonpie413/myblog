@@ -18,6 +18,8 @@ tags: mysql
     - [Routine Level](#routine-level)
     - [GRANT](#grant)
 
+<!-- more -->
+
 # 层级结构
 
 __Sql Layer__ 负责查询相关, __Storage Engine Layer__ 底层数据存储相关
