@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/09/haskell-notes/</loc>
+    
+    <lastmod>2018-05-09T15:50:07.116Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/03/netty-notes-4/</loc>
+    
+    <lastmod>2018-05-09T14:15:10.583Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/01/concurrency-notes-3/</loc>
     
     <lastmod>2018-05-01T02:21:56.056Z</lastmod>
