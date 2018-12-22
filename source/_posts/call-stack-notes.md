@@ -66,5 +66,46 @@ int foo()
 
 ### Call Stack - 方法栈
 
+### 值传递和引用传递
+
+直接看代码示例
+
+```c
+int addByValue(int a, int b)
+{
+  // 值传递
+  int c = a + b;
+
+  // a只是main方法栈中拷贝的值, 修改它不会
+  // 对原来的值产生影响
+  a = 3;
+  return c;
+}
+
+int addByReference(int *a, int *b)
+{
+  // 引用传递, 修改a, b引用的真实地址的值
+  int c = *a + *b;
+
+  // 改变b的指针指向的堆内存中的值
+  // 会对main方法中的值产生改变
+  *b = 3;
+  return c;
+}
+
+int main()
+{
+  int a = 1, b = 2;
+  int c1 = addByValue(a, b);
+  int c2 = addByReference(&a, &b);
+
+  printf("call by value: %d\n", c1);
+  printf("call by reference: %d\n", c2);
+
+  // a不变, b改变
+  printf("after call, a: %d, b: %d \n", a, b);
+}
+```
+
 
 [reference]: https://www.youtube.com/watch?v=LW8Rfh6TzGg
